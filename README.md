@@ -1,4 +1,5 @@
-# adventofcode2023
+# adventofcode
 
-Challenge dell'adventofcode 2023!
-Le soluzioni sono scritte in python e non sono assolutamente le più efficienti / belle possibili, sono solo di allenamento :3
+My challenges for the [advent of code](https://adventofcode.com), grouped by year!
+
+The challenges dated before 2024 are reported as an archive: the current repository also has a devcontainer which is developed for a Rust environment, whilst old challenges were written in Python.
