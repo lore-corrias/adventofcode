@@ -20,25 +20,18 @@ fn solve_task_2(input: &str) -> i32 {
 
     for capture in regex.captures_iter(input) {
         let (operand1, operand2) = (capture.get(1).ok_or(""), capture.get(2).ok_or(""));
-        let skip = capture.get(3).ok_or("");
-        let dont_skip = capture.get(4).ok_or("");
 
+        // apparently this is not supported yet
+        // if let Some(operand1) = capture.get(1) && let Some(operand2) = capture.get(2) {
         if operand1.is_ok() && operand2.is_ok() {
-            // println!(
-            //     "{} {}",
-            //     operand1.unwrap().as_str(),
-            //     operand2.unwrap().as_str()
-            // );
             if skip_next {
                 continue;
             }
             sum += operand1.unwrap().as_str().parse::<i32>().unwrap()
                 * operand2.unwrap().as_str().parse::<i32>().unwrap();
-        } else if skip.is_ok() {
-            // println!("{}", skip.unwrap().as_str());
+        } else if capture.get(3).is_some() {
             skip_next = true;
-        } else if dont_skip.is_ok() {
-            // println!("{}", dont_skip.unwrap().as_str());
+        } else if capture.get(4).is_some() {
             skip_next = false;
         }
     }
